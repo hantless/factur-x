@@ -9,7 +9,7 @@
  * with this source code in the file LICENSE.
  */
 
-namespace Atgp\FacturX\Fpdi;
+namespace Hantless\FacturX\Fpdi;
 
 class FdpiFacturx extends \setasign\Fpdi\Fpdi
 {

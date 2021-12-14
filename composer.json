@@ -1,6 +1,6 @@
 {
-    "name": "atgp/factur-x",
-    "description": "PHP library to manage your Factur-X / ZUGFeRD 2.0 PDF invoices files",
+    "name": "hantless/factur-x",
+    "description": "PHP library to manage your Factur-X / ZUGFeRD 2.0 PDF invoices files. Extending the work of Lucas Gouy-Pailler at atgp/factur-x.",
     "keywords": [
         "php",
         "invoice",
@@ -15,15 +15,19 @@
         {
             "name": "Lucas Gouy-Pailler",
             "email": "lucas.gouypailler@atgp.net"
+        },
+        {
+            "name": "Frédéric Arijs",
+            "email": "hantless@gmail.com"
         }
     ],
     "autoload": {
         "psr-4": {
-            "Atgp\\FacturX\\": "src/"
+            "Hantless\\FacturX\\": "src/"
         }
     },
     "require": {
-        "php": ">=5.6",
+        "php": ">=7.2",
         "setasign/fpdf": "^1.8",
         "setasign/fpdi": "^2.0",
         "smalot/pdfparser": "^0.19.0",

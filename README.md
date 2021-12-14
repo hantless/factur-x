@@ -1,6 +1,7 @@
 PHP Factur-X library
 ------------------
-Factur-X is the e-invoicing standard for France and Germany. The Factur-X specifications are available on the FNFE-MPE website. The Factur-X standard is also called ZUGFeRD 2.0 in Germany.
+Factur-X is the e-invoicing standard for France and Germany. The Factur-X specifications are available on the FNFE-MPE website.
+The Factur-X standard is also called ZUGFeRD 2.0 in Germany.
 
 This library enable you to manage your Factur-X PDF invoices files :
 * **Generate Factur-X PDF invoice** from regular PDF invoice and Factur-X XML file
@@ -19,7 +20,7 @@ Table of contents:
 Requirements
 ------------
 - Apache2
-- PHP 5.6+
+- PHP 7.2+
 - Composer
 - [FPDI](https://github.com/Setasign/FPDI) (MIT License)
 - [Smalot](https://github.com/smalot/pdfparser) (LGPL License)
@@ -31,7 +32,7 @@ Installation
 #### Download with Composer
 
 ```bash
-composer require atgp/factur-x
+composer require hantless/factur-x
 ```
 
 Usage
@@ -52,6 +53,8 @@ $facturxXml = $facturx->getFacturxXmlFromPdf($facturxPdf);
 // Check Factur-X XML against official Factur-X XML Schema Definition 
 $facturx = new Facturx();
 $isValid = $facturx->checkFacturxXsd($facturxXml);
+
+
 ```
 More options are available, look at source code for more informations
 
