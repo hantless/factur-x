@@ -9,6 +9,7 @@
 namespace Hantless\FacturX;
 
 use Hantless\FacturX\Utils\FacturxPath as Path;
+use Hantless\FacturX\Utils\InvoiceItemsList;
 
 class FacturxReader
 {
