@@ -11,28 +11,34 @@ class InvoiceItem
      */
     private $_item;
 
+    private $_xpath = null;
+
     public function __construct(\DOMNode $item)
     {
-        $domdoc = new \DOMDocument();
-        $domdoc->loadXML($item);
-        $this->_item = new \DOMXPath($domdoc);
+        $this->_item = $item;
     }
 
     public function getLineNumber()
     {
-        return $this->_query(static::LINE_NUMBER);
+        return $this->_query(static::LINE_NUMBER)->nodeValue;
     }
 
     /**
      * Get the node value of an element.
      *
      * @param string $query_path
-     * @return mixed
+     * @return \DOMNode
      * @throws Exception
      */
     private function _query(string $query_path)
     {
-        $data = $this->_item->query($query_path);
+        if (null === $this->_xpath) {
+            $docFacturx = new \DOMDocument();
+            $docFacturx->append($this->_item);
+            $this->_xpath = new \DOMXPath($docFacturx);
+        }
+
+        $data = $this->_xpath->query($query_path);
 
         if (false === $data) {
             throw new Exception('Malformed expression or contextNode invalid.');
@@ -42,7 +48,7 @@ class InvoiceItem
             throw new Exception('No result.');
         }
 
-        return $data->item(0)->nodeValue;
+        return $data->item(0);
     }
 
 

@@ -8,6 +8,7 @@
 
 namespace Hantless\FacturX;
 
+use Exception;
 use Hantless\FacturX\Utils\FacturxPath as Path;
 use Hantless\FacturX\Utils\InvoiceItemsList;
 
@@ -28,12 +29,12 @@ class FacturxReader
 
     public function getId()
     {
-        return $this->_query(Path::INVOICE_ID);
+        return $this->_query(Path::INVOICE_ID)->nodeValue;
     }
 
     public function getDocumentType()
     {
-        return $this->_query(Path::DOCUMENT_TYPE);
+        return $this->_query(Path::DOCUMENT_TYPE)->nodeValue;
     }
 
     public function getDocumentLines()
@@ -43,12 +44,14 @@ class FacturxReader
     }
 
     /**
-     * Get the node value of an element.
+     * Return the DOMNode for single result or a DOMNodeList if multiple results.
      *
      * @param string $query_path
-     * @return mixed
+     * @return \DOMNodeList | \DOMNode
+     *
+     * @throws Exception
      */
-    private function _query(string $query_path)
+    private function _query(string $query_path, $multiple = false)
     {
         if (null === $this->_xpath) {
             $docFacturx = new \DOMDocument();
@@ -66,7 +69,11 @@ class FacturxReader
             throw new Exception('No result.');
         }
 
-        return $data->item(0)->nodeValue;
+        if ($multiple) {
+            return $data;
+        }
+
+        return $data->item(0);
     }
 
 }
