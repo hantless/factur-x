@@ -7,7 +7,7 @@
 
 namespace Hantless\FacturX;
 
-class FacturxWriter
+class FacturxPdfWriter
 {
-
+    public static merge($path_to_pdf, $xml) {}
 }

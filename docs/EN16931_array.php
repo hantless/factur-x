@@ -8,7 +8,14 @@
  *
  */
 
-$en16_array = array(
+$en16931_array = array(
     'invoiceId' => 'mandatory string',
+    'invoiceType' => 380, // check Types in FacturxXML
     'issueDate' => 'mandatory date string with YYYYMMDD format',
+
+    'lines' => array(
+        array(
+        ),
+    ),
+
 );
