@@ -13,7 +13,7 @@ namespace Hantless\FacturX;
 
 use Hantless\FacturX\Fpdi\FdpiFacturx;
 
-class Facturx
+class FacturxPdf
 {
     const VERSION = '1.0';
     const FACTURX_ENCODING = 'UTF-8';
